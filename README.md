@@ -11,9 +11,14 @@ It includes primarily:
 - Code quality tools and scripts (ESLint, Prettier)
 - Pre-commit code quality checks
 
-**Yarn** is the preferred package manager for this project setup, please use that.
+This project builds on top of the standard [create-react-app][CRA] setup, but removes unneeded
+clutter and provides a logical starting point to start using all the above libraries effectively
+in minimal time. For example, the core App component already wraps the app in a react-redux
+`<Provider>` and react-router `<Router>` component.
 
 ## Setup
+
+> **Yarn** is the preferred package manager for this project setup, please at least v1.22 or higher
 
 Simply run `yarn install` to install dependencies.
 
@@ -37,5 +42,10 @@ Optionally, add a `.env` file to manage sensitive values to be made available vi
 - `yarn tsc` - Run the TypeScript compiler to check for static code errors. This does not
   modify or emit any files
 
-This project was originally bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+## Pre-commit checks
+
+Husky is installed in this project, which runs several commands when you `git commit` your
+changes. By default, all code quality scripts mentioned above are ran on each commit.
+These scripts can be adjusted inside the `"husky": {}` fields inside `package.json`.
+
+[CRA]: https://github.com/facebook/create-react-app
